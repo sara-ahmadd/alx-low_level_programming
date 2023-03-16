@@ -5,6 +5,6 @@
  */
 int main(void)
 {
-	printf("echo \"and that piece of art is useful\" - Dora Korpar, 2015-10-19\" >&2 ");
+	sprintf(command,"echo \"and that piece of art is useful\" - Dora Korpar, 2015-10-19\" >&2 ");
 	return (0);
 }
