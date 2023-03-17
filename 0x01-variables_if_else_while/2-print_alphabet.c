@@ -15,9 +15,9 @@ int main(void)
 
 	for (i = 0; i < length ; i++)
 	{
-		char letter = strlwr (alphabet[i]);
+		strlwr(alphabet[i]);
 
-		putchar(letter);
+		putchar(alphabet[i]);
 		putchar('\n');
 	}
 	return (0);
