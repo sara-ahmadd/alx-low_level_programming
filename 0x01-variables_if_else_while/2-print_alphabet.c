@@ -11,7 +11,7 @@ int main(void)
 {
 	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	int i;
-	int length = strlen(alphabe);
+	int length = strlen(alphabet);
 
 	for (i = 0; i < length ; i++)
 	{
