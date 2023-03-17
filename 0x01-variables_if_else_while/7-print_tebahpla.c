@@ -7,19 +7,6 @@
  *
  * Return: reversed string
  */
-void reverse(char *str)
-{
-	int i,j;
-	char temp;
-	int len = strlen(str);
-
-	for (i = len - 1 ,j = 0 ;j < (len/2) ; j-- , i++)
-	{
-		temp = str[j];
-		str[j] = str[i];
-		str[i] = temp;
-	}
-}
 
 /**
  * main - Entery point
@@ -31,7 +18,15 @@ int main(void)
 	char letters[] ="abcdefghijklmnopqrstuvwxyz";
 	int i;
 	int length = strlen(letters);
-	reverse(letters);
+	int k,j;
+        char temp;
+
+        for (i = length - 1 ,j = 0 ;j < (length/2) ; j-- , i++)
+        {
+                temp = letters[j];
+                letters[j] = letters[i];
+                letters[i] = temp;
+        }
 
 	for (i = 0 ; i < length ; i++)
 	{
