@@ -12,13 +12,12 @@ int main(void)
 
 	for (i = 0 ; i < 10 ; i++)
 	{
-		for (k = 0 ; k < 10 ; k++)
-		{
 			putchar('0' + i);
-			putchar('0' + k);
+			if (i != 9)
+			{
 			putchar(',');
 			putchar('\t');
-		}
+			}
 	}
 	return (0);
 
