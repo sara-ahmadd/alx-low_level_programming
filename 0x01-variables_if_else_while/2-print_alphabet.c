@@ -16,7 +16,7 @@ int main(void)
 
 	for (i = 0; i < length ; i++)
 	{
-		putchar('%c');
+		alphabet[i] = strlwr(alphabet[i]);
 		putchar(alphabet[i]);
 	}
 	return (0);
