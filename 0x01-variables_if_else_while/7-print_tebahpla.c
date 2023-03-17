@@ -7,7 +7,7 @@
  *
  * Return: reversed string
  */
-const char* reverse(char str[])
+void reverse(char str[])
 {
 	int i,j;
 	char temp;
@@ -19,7 +19,6 @@ const char* reverse(char str[])
 		str[j] = str[i];
 		str[i] = temp;
 	}
-	return str;
 }
 
 /**
