@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	char alphabet[ ] =strlwr ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	char alphabet[27] = strlwr("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	int i;
 	int length = strlen(alphabet);
 
