@@ -10,13 +10,14 @@
 
 int main(void)
 {
-	char alphabet[ ] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char alphabet[ ] =strlwr ("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	int i;
 	int length = strlen(alphabet);
 
 	for (i = 0; i < length ; i++)
 	{
-	putchar(alphabet[i]);
+	putchar(alphabet);
+	putchar('\n');
 	}
 	return (0);
 }
