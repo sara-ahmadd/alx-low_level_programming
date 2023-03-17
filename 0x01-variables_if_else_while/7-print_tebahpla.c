@@ -7,7 +7,7 @@
  *
  * Return: reversed string
  */
-void reverse(char str[])
+void reverse(char *str)
 {
 	int i,j;
 	char temp;
