@@ -20,5 +20,6 @@ int main(void)
 		putchar(tolower(letters[i]));
 		}
 	}
+	putchar('\n');
 	return (0);
 }
