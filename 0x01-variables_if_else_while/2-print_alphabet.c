@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
 
 /**
@@ -10,14 +10,13 @@
 
 int main(void)
 {
-	char alphabet[27] = strlwr("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	char alphabet[ ] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ\n";
 	int i;
 	int length = strlen(alphabet);
 
-	for (i = 0; i < length ; i++)
+	for (i = 0 ; i < length ; i++)
 	{
-	alphabet[i] = alphabet(putchar(i));
-	putchar('\n');
+	putchar(tolower(alphabet[i]));
 	}
 	return (0);
 }
