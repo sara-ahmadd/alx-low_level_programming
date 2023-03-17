@@ -16,8 +16,7 @@ int main(void)
 
 	for (i = 0; i < length ; i++)
 	{
-		alphabet[i] = strlwr(alphabet[i]);
-		putchar(alphabet[i]);
+	putchar(alphabet[i]);
 	}
 	return (0);
 }
