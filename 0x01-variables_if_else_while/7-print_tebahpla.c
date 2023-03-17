@@ -18,7 +18,7 @@ int main(void)
 	char letters[] ="abcdefghijklmnopqrstuvwxyz";
 	int i;
 	int length = strlen(letters);
-	int k,j;
+	int j;
         char temp;
 
         for (i = length - 1 ,j = 0 ;j < (length/2) ; j-- , i++)
