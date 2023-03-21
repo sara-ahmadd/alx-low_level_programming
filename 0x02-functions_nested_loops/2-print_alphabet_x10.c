@@ -8,11 +8,12 @@
 
 void print_alphabet_x10(void)
 {
-	for (int i = 0; i < 10; i++)
+	int i = 0; 
+	while (i < 10)
 	{
 		char letters[] = "abcdefghijklmnopqrstuvwxyz";
 		int length = strlen(letters);
-		
+		int j = 0;		
 
        		 while (j < length)
        		 {
@@ -20,6 +21,7 @@ void print_alphabet_x10(void)
         	        j++;
 	       	 }
 	        _putchar('\n');
+		i++;
 	}
 }
 
