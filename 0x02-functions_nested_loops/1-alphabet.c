@@ -1,6 +1,6 @@
 #include "main.h"
 #include <ctype.h>
-
+#include <stdio.h>
 
 void print_alphabet(char alpha[], int size)
 {
