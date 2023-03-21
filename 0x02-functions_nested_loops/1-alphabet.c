@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 void print_alphabet(void)
 {
 	char letters[] = "abcdefghijklmnopqrstuvwxyz";
@@ -7,7 +7,7 @@ void print_alphabet(void)
 
 	for(int i = 0; i < size; i++)
 	{
-		_putchar(letter[i]);
+		_putchar(letters[i]);
 	}
 	_putchar('\n');
 }
