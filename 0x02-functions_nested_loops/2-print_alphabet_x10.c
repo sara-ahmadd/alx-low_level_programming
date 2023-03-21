@@ -12,12 +12,14 @@ void print_alphabet_x10(void)
 	{
 		char letters[] = "abcdefghijklmnopqrstuvwxyz";
 		int length = strlen(letters);
+		
 
-		for (int j = 0; j < length; j++)
-		{
-			_putchar(letters[j]);
-		}
-		_putchar('\n');
+       		 while (j < length)
+       		 {
+               		 _putchar(letters[j]);
+        	        j++;
+	       	 }
+	        _putchar('\n');
 	}
 }
 
