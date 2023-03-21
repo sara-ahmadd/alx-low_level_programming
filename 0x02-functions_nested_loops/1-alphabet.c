@@ -5,8 +5,8 @@
 void print_alphabet(char c)
 {
 	char letter = tolower(c);
-	__putchar(letter);
-        
+
+	_putchar(letter);
 }
 
 /**
@@ -17,7 +17,6 @@ void print_alphabet(char c)
 
 int main(void)
 {
-	
 	print_alphabet('A');
 	print_alphabet('B');
 	print_alphabet('C');
@@ -44,7 +43,6 @@ int main(void)
 	print_alphabet('X');
 	print_alphabet('Y');
 	print_alphabet('Z');
-	
 	_putchar('\n');
 	return (0);
 }
