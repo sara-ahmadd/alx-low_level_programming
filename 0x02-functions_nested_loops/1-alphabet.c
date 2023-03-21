@@ -4,10 +4,11 @@ void print_alphabet(void)
 {
 	char letters[] = "abcdefghijklmnopqrstuvwxyz";
 	int size = sizeof(letters) / sizeof(letters[0]);
-
-	for(int i = 0; i < size; i++)
+	int i = 0
+	while(i < size)
 	{
 		_putchar(letters[i]);
+		i++;
 	}
 	_putchar('\n');
 }
