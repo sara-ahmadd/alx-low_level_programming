@@ -2,13 +2,11 @@
 #include <ctype.h>
 #include <stdio.h>
 
-void print_alphabet(char alpha[], int size)
+void print_alphabet(char c)
 {
-	for(int i = 0; i < size; i++)
-        {
-                int letter = tolower(alpha[i]);
-                _putchar(letter);
-        }
+	char letter = tolower(c);
+	__putchar(letter);
+        
 }
 
 /**
@@ -19,10 +17,33 @@ void print_alphabet(char alpha[], int size)
 
 int main(void)
 {
-	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int size_alpha = sizeof(alpha) / sizeof(alpha[0]);
 	
-	print_alphabet(alpha, size_alpha);
+	print_alphabet('A');
+	print_alphabet('B');
+	print_alphabet('C');
+	print_alphabet('D');
+	print_alphabet('E');
+	print_alphabet('F');
+	print_alphabet('G');
+	print_alphabet('H');
+	print_alphabet('I');
+	print_alphabet('J');
+	print_alphabet('K');
+	print_alphabet('L');
+	print_alphabet('M');
+	print_alphabet('N');
+	print_alphabet('o');
+	print_alphabet('P');
+	print_alphabet('Q');
+	print_alphabet('R');
+	print_alphabet('S');
+	print_alphabet('T');
+	print_alphabet('U');
+	print_alphabet('V');
+	print_alphabet('W');
+	print_alphabet('X');
+	print_alphabet('Y');
+	print_alphabet('Z');
 	
 	_putchar('\n');
 	return (0);
