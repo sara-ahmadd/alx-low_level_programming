@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <main.h>
 
-/**
+/*
  * main - entery point
  *
- * Return: always 0
+ * Return: always 0 (success)
  */
 int main(void)
 {
-	printf("\_putchar\n");
+	putchar("_putchar");
 	return (0);
 }
