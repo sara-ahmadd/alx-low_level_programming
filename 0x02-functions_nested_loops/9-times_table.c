@@ -18,13 +18,13 @@ void times_table(void)
 			int result = (i * j);
 			if (i > 0)
 			{
-				_putchar('0' + (result / 10))
+				_putchar('0' + (result / 10));
 				_putchar(',');
 				_putchar(' ');
 				j++;
 			}
 			_putchar('0' + (result / 10));
-			_putchar('0' + (result % 10))
+			_putchar('0' + (result % 10));
 			_putchar(',');
 			_putchar(' ');
 			j++;
