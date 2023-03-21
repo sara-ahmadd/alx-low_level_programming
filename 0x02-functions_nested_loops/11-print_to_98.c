@@ -4,6 +4,7 @@
 
 /**
  * print_to_98 - print natural numbers till 98
+ * @n: input limit
 */
 void print_to_98(int n)
 {
@@ -18,6 +19,7 @@ void print_to_98(int n)
 			if (n == 98)
 			{
 				printf("%d\n", n);
+				break;
 			}
 			else
 			{
@@ -25,7 +27,6 @@ void print_to_98(int n)
 			}
 			n--;
 		}
-		
 	}
 	if (n < 98)
 	{
