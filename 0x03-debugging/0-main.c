@@ -11,7 +11,12 @@ int main(void)
 
 	i = 0;
 
-	positive_or_negative(i);
+	char result[] =	positive_or_negative(i);
+
+	if (result == "0 is zero")
+	{
+		return ("0 is zero");
+	}
 
 	return (0);
 }
