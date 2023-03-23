@@ -26,9 +26,7 @@ int main(void)
 		{
 			printf("%d ", i);
 		}
-		if (i == 99)
-		{
-			putchar('\n');
-		}
 	}
+	printf("\n");
+	return (0);
 }
