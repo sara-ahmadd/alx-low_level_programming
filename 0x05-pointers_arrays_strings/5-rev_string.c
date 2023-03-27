@@ -9,5 +9,13 @@
 
 void rev_string(char *s)
 {
-	strrev(s);
+	int len = strlen(s);
+	int i;
+	int str[];
+
+	for (i = len - 1; i >= 0; i--)
+	{
+		strcpy(str, s[i]);
+	}
+	strcpy(s, str);
 }
