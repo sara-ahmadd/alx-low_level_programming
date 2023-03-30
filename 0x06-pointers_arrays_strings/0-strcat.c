@@ -8,7 +8,7 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	dest = strcat(src, dest);
+	dest = strcat(dest, src);
 	return (dest);
 
 }
