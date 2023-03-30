@@ -9,6 +9,6 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	dest = strlen(dest, src[n]);
+	dest = strncat(dest, src, n);
 	return (dest);
 }
