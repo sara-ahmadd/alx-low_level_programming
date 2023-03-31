@@ -1,5 +1,5 @@
 #include "main.h"
-#include <ctype>
+#include <ctype.h>
 /**
  * *string_toupper - change chars to uppercase
  * @str: the string
