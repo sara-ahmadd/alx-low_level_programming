@@ -11,20 +11,9 @@
 
 char *_strchr(char *s, char c)
 {
-	int len = strlen(s);
-	int i;
 	char *letter;
 
-	for (i = 0; i < len; i++)
-	{
-		if (s[i] == c)
-		{
-			letter = s[i];
-		}
-		else if (i == len - 1 && s[i] != c)
-		{
-			letter = "NULL";
-		}
-	}
-	return (letter)
+	letter = strchr(s, c);
+
+	return (letter);
 }
