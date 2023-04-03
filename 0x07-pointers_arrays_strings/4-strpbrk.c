@@ -11,7 +11,7 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j;
+	unsigned int i, j, len;
 
 	len = strlen(s) - 1;
 
