@@ -21,12 +21,15 @@ unsigned int _strspn(char *s, char *accept)
 			if (accept[j] == s[i])
 			{
 				found_match = true;
-				k++;
 				break;
 			}
 			if (!found_match)
 			{
 				break;
+			}
+			else
+			{
+				k++;
 			}
 		}
 	}
