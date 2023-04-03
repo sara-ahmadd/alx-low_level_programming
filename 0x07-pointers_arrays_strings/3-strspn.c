@@ -14,9 +14,9 @@ unsigned int _strspn(char *s, char *accept)
 	unsigned int i, j, k = 0;
 	bool found_match = false;
 
-	for (i = 0; i < strlen(s); i++)
+	for (i = 0; i < unsigned int  strlen(s); i++)
 	{
-		for (j = 0; j < strlen(accept); j++)
+		for (j = 0; j < unsigned int strlen(accept); j++)
 		{
 			if (accept[j] == s[i])
 			{
