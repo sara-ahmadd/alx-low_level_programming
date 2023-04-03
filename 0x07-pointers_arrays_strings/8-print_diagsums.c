@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 #include <stdio.h>
 
 /**
@@ -9,7 +10,7 @@
 
 void print_diagsums(int *a, int size)
 {
-	unsigned int i, j, sum = 0;
+	int i, j, sum = 0;
 
 	for (i = 0; i < size; i++)
 	{
