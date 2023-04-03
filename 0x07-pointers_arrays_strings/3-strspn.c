@@ -15,7 +15,7 @@ unsigned int _strspn(char *s, char *accept)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == accept[i])
+		if (s[i] == accept[i] || s[i] + 32 == accept[i])
 		{
 			k++;
 		}
