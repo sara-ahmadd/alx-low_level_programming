@@ -24,17 +24,18 @@ char *_strpbrk(char *s, char *accept)
 		{
 			if (accept[i] == s[j])
 			{
-				if (j <= len)
+				if (j <= len - 1)
 				{
 					len = j;
 					match = 1;
+					break;
 				}
 			}
 		}
 	}
 	if (match == 1)
 	{
-		return (&s[len]);
+		return (&s[len + 1]);
 	}
 	else
 	{
