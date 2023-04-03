@@ -11,10 +11,10 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, len, flag;
+	unsigned int i, j, len, len_2, flag;
 
 	len = strlen(haystack) - 1;
-	int len_2 = strlen(needle) - 1;
+	len_2 = strlen(needle) - 1;
 
 	for (i = 0; i <= len; i++)
 	{
