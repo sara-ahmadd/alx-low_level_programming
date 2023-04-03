@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _memcpy - copy a string to another string
  * @dest: the array to which another string copied
