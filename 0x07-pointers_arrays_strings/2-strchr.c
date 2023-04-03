@@ -13,16 +13,18 @@ char *_strchr(char *s, char c)
 {
 	int len = strlen(s);
 	int i;
+	char *letter;
 
 	for (i = 0; i < len; i++)
 	{
 		if (s[i] == c)
 		{
-			return (s[i]);
+			letter = s[i];
 		}
 		else if (i == len - 1 && s[i] != c)
 		{
-			return (NULL);
+			letter = "NULL";
 		}
 	}
+	return (letter)
 }
