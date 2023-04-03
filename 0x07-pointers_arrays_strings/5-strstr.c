@@ -13,20 +13,20 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int i, j, len, len_2, flag;
 
-	len = strlen(haystack) - 1;
-	len_2 = strlen(needle) - 1;
+	len = strlen(haystack);
+	len_2 = strlen(needle);
 
 	if (haystack == NULL || needle == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; i <= len; i++)
+	for (i = 0; i < len; i++)
 	{
 		if (haystack[i] == needle[0])
 		{
 			flag = 0;
 
-			for (j = 0; j <= len_2; j++)
+			for (j = 0; j < len_2; j++)
 			{
 				if (haystack[i + j] != needle[j])
 				{
