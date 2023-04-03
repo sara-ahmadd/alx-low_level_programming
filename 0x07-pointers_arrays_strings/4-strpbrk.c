@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+
 
 /**
  * _strpbrk - fing first matching char from str2 in str1
@@ -12,24 +12,32 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j;
-	unsigned int len_s = strlen(s);
-	unsigned int len_accept = strlen(accept);
-	char *result;
+	int i, j, len;
+	int match = 0;
 
-	for (i = 0; i < len_s; i++)
+	len = strlen(s);
+
+	for (i = 0; accept[i] != '\n'; i++)
 	{
-		bool match = false;
 
-		for (j = 0; j < len_accept; j++)
+		for (j = 0; s[j] != '\n'; j++)
 		{
-			if (accept[j] == s[i])
+			if (accept[i] == s[j])
 			{
-				match = true;
-				result = accept[j];
-				break;
+				if (j <= len)
+				{
+					len = j;
+					match = 1;
+				}
 			}
 		}
 	}
-	return (*result);
+	if (match == 1)
+	{
+		return (&s[len]);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
