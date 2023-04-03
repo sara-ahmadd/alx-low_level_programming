@@ -14,20 +14,21 @@ char *_strstr(char *haystack, char *needle)
 	int i, j, len, flag;
 
 	len = strlen(haystack) - 1;
+	int len_2 = strlen(needle) - 1;
 
-	for (i = 0; haystack[i] != '\0'; i++)
+	for (i = 0; i <= len; i++)
 	{
 		if (haystack[i] == needle[0])
 		{
 			flag = 0;
 
-			for (j = 0; needle[j] != '\0'; j++)
+			for (j = 0; j <= len_2; j++)
 			{
 				if (haystack[i + j] != needle[j])
 				{
 					flag = 1;
 					break;
-				}	
+				}
 			}
 			if (flag == 0)
 			{
