@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 /**
  * _strpbrk - fing first matching char from str2 in str1
  * @s: the string to be scanned
@@ -12,33 +11,25 @@
 
 char *_strpbrk(char *s, char *accept)
 {
-	int i, j, len;
-	int match = 0;
+	unsigned int i, j;
 
-	len = strlen(s);
+	len = strlen(s) - 1;
 
-	for (i = 0; accept[i] != '\n'; i++)
-	{
-
-		for (j = 0; s[j] != '\n'; j++)
-		{
-			if (accept[i] == s[j])
-			{
-				if (j <= len - 1)
-				{
-					len = j;
-					match = 1;
-					break;
-				}
-			}
-		}
-	}
-	if (match == 1)
-	{
-		return (&s[len + 1]);
-	}
-	else
+	if (s == NULL || accept == NULL)
 	{
 		return (NULL);
 	}
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+
+		for (j = 0; accept[j] != '\0'; j++)
+		{
+			if (accept[j] == s[i] && i <= len)
+			{
+				return (&s[i]);
+			}
+		}
+	}
+	return (NULL);
 }
