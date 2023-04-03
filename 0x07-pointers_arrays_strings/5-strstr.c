@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <stdio.h>
 
 /**
  * _strstr - matches a substring in a string
@@ -10,13 +11,14 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j;
+	int i, j, len;
+	len = strlen(haystack) - 1;
 
 	for (i = 0; needle[i] != '\0'; i++)
 	{
 		for (j = 0; haystack[j] != '\0'; j++)
 		{
-			if (needle[i] == haystack[j])
+			if (needle[i] == haystack[j] && j <= len)
 			{
 				return (&haystack[j]);
 			}
