@@ -10,20 +10,9 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int k = 0;
-	int i, j;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[i] || s[i] + 32 == accept[j])
-			{
-				k++;
-			}
-		}
-
-	}
+	unsigned int k;
+	
+	k = strspn(s, accept);
 	return (k);
 
 }
