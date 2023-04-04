@@ -12,12 +12,13 @@
 char *_strstr(char *haystack, char *needle)
 {
 	int i;
+
 	for (i = 0; i < (strlen(haystack) - strlen(needle)); i++)
 	{
 		if (strncmp(&haystack[i], &needle[0], strlen(needle) - 1) == 0)
 		{
 			return ((char *)haystack + i);
-		}	
+		}
 	}
 	return (NULL);
 }
