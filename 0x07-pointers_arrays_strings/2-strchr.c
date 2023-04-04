@@ -13,7 +13,7 @@ char *_strchr(char *s, char c)
 {
 	while (*s != '\0')
 	{
-		if (*s == c || *s == c + 32)
+		if (*s == c || *s == c + 32 || *s == c - 32)
 		{
 			return ((char *) s);
 		}
