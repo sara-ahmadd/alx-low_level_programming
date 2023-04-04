@@ -11,7 +11,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	size_t i, j, len, len_2, flag;
+	int i, j, len, len_2, flag;
 
 	len = strlen(haystack);
 	len_2 = strlen(needle);
