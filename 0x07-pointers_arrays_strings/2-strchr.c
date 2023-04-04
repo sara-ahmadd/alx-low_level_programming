@@ -9,11 +9,11 @@
  * Return: a pointer to the found char
  */
 
-char *_strchr(const char *s, char c)
+char *_strchr(char *s, char c)
 {
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == c || *s == c + '0')
 		{
 			return ((char *) s);
 		}
