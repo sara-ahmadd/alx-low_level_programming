@@ -11,7 +11,7 @@
 
 char *_strchr(char *s, char c)
 {
-	size_t len_s = strlen(s);
+	int len_s = strlen(s);
 
 	for (i = 0; i < len_s; i++)
 	{
