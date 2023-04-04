@@ -11,9 +11,14 @@
 
 char *_strchr(char *s, char c)
 {
-	char *letter;
+	size_t len_s = strlen(s);
 
-	letter = strchr(s, c);
-
-	return (letter);
+	for (i = 0; i < len_s; i++)
+	{
+		if (s[i] == c)
+		{
+			return (&s[i]);
+		}
+	}
+	return (NULL);
 }
