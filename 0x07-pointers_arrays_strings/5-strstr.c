@@ -11,7 +11,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j, len, len_2, flag;
+	size_t i, j, len, len_2, flag;
 
 	len = strlen(haystack);
 	len_2 = strlen(needle);
@@ -39,6 +39,9 @@ char *_strstr(char *haystack, char *needle)
 				return (&haystack[i]);
 			}
 		}
+		else
+		{
+			return (NULL);
+		}
 	}
-	return (NULL);
 }
