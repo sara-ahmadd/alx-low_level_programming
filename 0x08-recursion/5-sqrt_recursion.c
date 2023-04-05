@@ -1,10 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-/**
- * _sqrt_recursion - reurn square root of a number
- * @n: the number input
- * Return: square root of that number
- */
+
 /**
  * square - check if the (value) is square root of (num)
  * @num: the number to check its square root
@@ -26,6 +22,11 @@ int square(int num, int value)
 		return (-1);
 	}
 }
+/**
+ * _sqrt_recursion - reurn square root of a number
+ * @n: the number input
+ * Return: square root of that number
+ */
 int _sqrt_recursion(int n)
 {
 	return (square(n, 1));
