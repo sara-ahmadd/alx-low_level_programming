@@ -10,7 +10,7 @@
  */
 int check_if_prime(int n, int value)
 {
-	if(n >= 2 && value >= n)
+	if (n >= 2 && value >= n)
 	{
 		return (1);
 	}
