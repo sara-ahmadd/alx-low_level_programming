@@ -1,2 +1,2 @@
-#!bin/bash
+#!bash/bin
 gcc -c *.c | ar rcs liball.a *.o
