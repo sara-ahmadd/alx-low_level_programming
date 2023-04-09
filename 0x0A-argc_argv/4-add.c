@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * main -entery point to the program
@@ -9,21 +11,26 @@
  */
 int main(int argc, char **argv)
 {
-	int sum = 0, i;
+	int sum = 0, i, j, len;
+	char *ptr;
 
 	if (argc >= 3)
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (*argv[i] < '0' || *argv[i] > '9')
+			ptr = argv[i];
+			len = strlen(ptr);
+
+			for (j = 0; j < strlen; j++)
 			{
-				printf("Error\n");
-				return (1);
+
+				if (isdigit(*(ptr + j)) == 0)
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
-			else
-			{
-				sum += atoi(argv[i]);
-			}
+			sum += atoi(argv[i]);
 		}
 		printf("%d\n", sum);
 		return (0);
