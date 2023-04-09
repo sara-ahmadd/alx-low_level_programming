@@ -10,6 +10,7 @@
 int main(int argc, char **argv)
 {
 	int sum = 0, i;
+	char *c;
 
 	if (argc >= 2)
 	{
@@ -20,19 +21,18 @@ int main(int argc, char **argv)
 				printf("Error\n");
 				return (1);
 			}
-			sum += atoi(argv[i]);
+			else
+			{
+				sum += atoi(argv[i]);
+			}
 		}
 		printf("%d\n", sum);
 		return (0);
 	}
-	else if (argc == 1)
+	else
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
-	else
-	{
-		printf("Error\n");
-		return (1);
-	}
+	
 }
