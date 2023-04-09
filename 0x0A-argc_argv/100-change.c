@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	{
 		if (value < 0)
 		{
-			return (printf("%d\n", 0), 0);
+			printf("%d\n", 0);
 		}
 		else
 		{
