@@ -16,6 +16,10 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		if (value < 0)
+		{
+			return(printf("%d\n", 0), 0);
+		}
 		for (i = 0; i < 5; i++)
 		{
 			if (value >= coins[i])
