@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 
 	if (argc >= 2)
 	{
-		for (i = 1; i <= argc; i++)
+		for (i = 1; i < argc; i++)
 		{
 			if (*argv[i] < '0' || *argv[i] > '9')
 			{
@@ -28,13 +28,8 @@ int main(int argc, char **argv)
 		printf("%d\n", sum);
 		return (0);
 	}
-	else if (argc == 1)
-	{
-		printf("%d\n", 0);
-		return (0);
-	}
 	else
 	{
-		return (printf("Error\n"), 1);
+		return (printf("%d\n", 0), 0);
 	}
 }
