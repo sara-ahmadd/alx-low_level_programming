@@ -29,10 +29,13 @@ int main(int argc, char **argv)
 		printf("%d\n", sum);
 		return (0);
 	}
-	else
+	else if (argc == 1)
 	{
 		printf("%d\n", 0);
 		return (0);
 	}
-	
+	else
+	{
+		return (printf("Error\n"), 1);
+	}
 }
