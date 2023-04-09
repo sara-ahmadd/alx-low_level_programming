@@ -35,10 +35,11 @@ int main(int argc, char **argv)
 				}
 			}
 		}
-		return (printf("%d\n", numberOfCoins), 0);
+		printf("%d\n", numberOfCoins);
 	}
 	else
 	{
 		return (printf("Error\n"), 1);
 	}
+	return (0);
 }
