@@ -10,7 +10,6 @@
 int main(int argc, char **argv)
 {
 	int sum = 0, i;
-	char *c;
 
 	if (argc >= 2)
 	{
