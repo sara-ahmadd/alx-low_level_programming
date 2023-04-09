@@ -14,16 +14,15 @@ int main(int argc, char **argv)
 	int sum = 0, i, j, len;
 	char *ptr;
 
-	if (argc >= 3)
+	if (argc >= 2)
 	{
 		for (i = 1; i < argc; i++)
 		{
 			ptr = argv[i];
 			len = strlen(ptr);
 
-			for (j = 0; j < strlen; j++)
+			for (j = 0; j < len; j++)
 			{
-
 				if (isdigit(*(ptr + j)) == 0)
 				{
 					printf("Error\n");
