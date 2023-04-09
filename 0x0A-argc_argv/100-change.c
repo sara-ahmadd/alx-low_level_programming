@@ -18,19 +18,21 @@ int main(int argc, char **argv)
 	{
 		if (value < 0)
 		{
-			return(printf("%d\n", 0), 0);
+			return (printf("%d\n", 0), 0);
 		}
-		for (i = 0; i < 5; i++)
+		else
 		{
-			if (value >= coins[i])
+			for (i = 0; i < 5; i++)
 			{
-				numberOfCoins += value / coins[i];
-				value = value % coins[i];
-				if (value % coins[i] == 0)
+				if (value >= coins[i])
 				{
-					break;
+					numberOfCoins += value / coins[i];
+					value = value % coins[i];
+					if (value % coins[i] == 0)
+					{
+						break;
+					}
 				}
-
 			}
 		}
 		return (printf("%d\n", numberOfCoins), 0);
