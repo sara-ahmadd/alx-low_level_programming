@@ -20,20 +20,16 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	if (*str == NULL)
+	if (str == NULL)
 	{
 		return (NULL);
 	}
-	else
+	while (str[i] != '\0')
 	{
-
-		while (str[i] != '\0')
-		{
-			copy[i] = str[i];
-			i++;
-		}
-		copy[i] = '\0';
-		return (copy);
+		copy[i] = str[i];
+		i++;
 	}
+	copy[i] = '\0';
+	return (copy);
 	free(copy);
 }
