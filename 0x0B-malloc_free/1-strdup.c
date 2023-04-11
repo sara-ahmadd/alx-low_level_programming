@@ -12,7 +12,7 @@ char *_strdup(char *str)
 	int size;
 	char *copy;
 	unsigned int i;
-	
+
 	if (str == NULL)
 	{
 		return (NULL);
@@ -23,7 +23,7 @@ char *_strdup(char *str)
 		;
 	}
 
-	copy = (char *)malloc((size + 1) * sizeof(str));
+	copy = (char *)malloc(size * sizeof(str) + 1);
 
 	if (copy == NULL)
 	{
@@ -37,7 +37,7 @@ char *_strdup(char *str)
 		}
 		copy[i] = '\0';
 		return (copy);
-		
+
 	}
 	free(copy);
 
