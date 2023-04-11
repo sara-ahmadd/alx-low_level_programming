@@ -29,5 +29,7 @@ char *create_array(unsigned int size, char c)
 			string[i] = c;
 		}
 		string[size] = '\0';
+		return string;
 	}
+	free(string);
 }
