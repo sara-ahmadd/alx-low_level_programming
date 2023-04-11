@@ -9,18 +9,19 @@
  */
 char *_strdup(char *str)
 {
-	int size = strlen(str);
+	int size;
 	char *copy;
 	unsigned int i;
 
-
-	copy = (char *)malloc((size + 1) * sizeof(char));
-	i = 0;
 	if (str == NULL)
 	{
 		return (NULL);
 	}
-	else if (copy == NULL)
+
+	i = 0;
+	size = strlen(str):
+	copy = (char *)malloc((size + 1) * sizeof(char)):
+	if (copy == NULL)
 	{
 		return (NULL);
 	}
