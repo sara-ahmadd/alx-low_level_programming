@@ -37,3 +37,4 @@ char *_strdup(char *str)
 		}
 		free(copy);
 	}
+}
