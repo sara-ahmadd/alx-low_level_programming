@@ -22,10 +22,14 @@ char *str_concat(char *s1, char *s2)
 	{
 		s2 = "";
 	}
-	else
+	else if (s1 == NULL && s2 == NULL)
 	{
 		s1 = "";
 		s2 = "";
+	}
+	else
+	{
+		;
 	}
 	con = malloc((len1 + len2) * sizeof(char) + 1);
 	if (con == NULL)
