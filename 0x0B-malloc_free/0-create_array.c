@@ -8,15 +8,15 @@
  */
 char *create_array(unsigned int size, char c)
 {
+	unsigned int i;
+	char *string;
+
+	i = 0;
+
 	if (size == 0)
 	{
 		return (NULL);
 	}
-
-	unsigned int i;
-
-	i = 0;
-	char *string;
 
 	string = (char *)malloc((size + 1) * sizeof(char));
 
