@@ -10,7 +10,9 @@
 char *_strdup(char *str)
 {
 	int size = strlen(str);
-	char *copy = (char *)malloc(size * sizeof(char));
+	char *copy;
+
+	copy = (char *)malloc(size * sizeof(char));
 	unsigned int i;
 
 	i = 0;
@@ -21,9 +23,9 @@ char *_strdup(char *str)
 	else
 	{
 
-		while (*str != '\0')
+		while (str[i] != '\0')
 		{
-			copy[i] = *str;
+			copy[i] = str[i];
 			i++;
 		}
 		copy[i] = '\0';
