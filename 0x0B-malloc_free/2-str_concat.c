@@ -10,27 +10,20 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *con;
-	int len1 = strlen(s1);
-	int len2 = strlen(s2);
+	int len1;
+	int len2;
 	int i, j;
 
-	if (s1 == NULL && s2 != NULL)
+	if (s1 == NULL)
 	{
-		s1 = "";
+		s1 = "\0";
 	}
-	else if (s2 == NULL && s1 != NULL)
+	if (s2 == NULL)
 	{
-		s2 = "";
+		s2 = "\0";
 	}
-	else if (s1 == NULL && s2 == NULL)
-	{
-		s1 = "";
-		s2 = "";
-	}
-	else
-	{
-		;
-	}
+	len1 = strlen(s1);
+	len2 = strlen(s2);
 	con = malloc((len1 + len2) * sizeof(char) + 1);
 	if (con == NULL)
 	{
@@ -49,4 +42,5 @@ char *str_concat(char *s1, char *s2)
 		con[len1 + len2] = '\0';
 		return (con);
 	}
+	free(con);
 }
