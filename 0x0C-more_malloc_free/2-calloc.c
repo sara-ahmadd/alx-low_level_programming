@@ -24,7 +24,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	else
 	{
 		len = nmemb * size;
-		for (i = 0; i < len; i++)
+		for (i = 0; i <= len; i++)
 		{
 			arr[i] = 0;
 		}
