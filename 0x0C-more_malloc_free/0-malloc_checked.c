@@ -13,7 +13,6 @@ void *malloc_checked(unsigned int b)
 	if (memo == NULL)
 	{
 		exit(98);
-		return (1);
 	}
 	else
 	{
