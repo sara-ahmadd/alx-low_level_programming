@@ -6,6 +6,7 @@
  * string_nconcat - concatenate two strings
  * @s1: the first string
  * @s2: the second string
+ * @n: number of characters to concatenate
  * Return: pointer to the resulted string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -29,7 +30,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		n = len2;
 	}
-	str =(char *) malloc((len1 + n) * sizeof(char) + 1);
+	str = (char *) malloc((len1 + n) * sizeof(char) + 1);
 	if (str == NULL)
 	{
 		return (NULL);
