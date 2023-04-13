@@ -9,7 +9,7 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *arr;
+	void *arr;
 	unsigned int i, len;
 
 	if (nmemb == 0 || size == 0)
@@ -26,9 +26,9 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		len = nmemb * size;
 		for (i = 0; i <= len; i++)
 		{
-			arr[i] = 0;
+			arr[i] = '0';
 		}
-		return ((void *)arr);
+		return (arr);
 	}
 	free(arr);
 }
