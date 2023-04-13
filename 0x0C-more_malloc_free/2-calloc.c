@@ -1,6 +1,24 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
+
+
+/**
+ * _memset - fill string with a char
+ * @str: the pointer
+ * @a: the char
+ * @n: the number of bytes
+ * Return: void pointer
+ */
+void *_memset(char *str, char a, unsigned int n)
+{
+	char *s = str;
+	while(n--)
+	{
+		*s++ = a;
+	}
+	return (s);
+}
 /**
  * _calloc - allocates memory for an array
  * @nmemb: the array elements
@@ -23,12 +41,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 	else
 	{
-		len = nmemb * size;
-		for (i = 0; i <= len; i++)
-		{
-			arr[i] = '0';
-		}
-		return (arr);
+		_memset(arr, 0, (nmemb * sizeof(int)));
+		return ((void *)(arr);
 	}
 	free(arr);
 }
