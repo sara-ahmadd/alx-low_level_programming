@@ -13,7 +13,8 @@
 void *_memset(char *str, char a, unsigned int n)
 {
 	char *s = str;
-	while(n--)
+
+	while (n--)
 	{
 		*s++ = a;
 	}
@@ -42,7 +43,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	else
 	{
 		_memset(arr, 0, (nmemb * sizeof(int)));
-		return ((void *)(arr));
+		return (arr);
 	}
 	free(arr);
 }
