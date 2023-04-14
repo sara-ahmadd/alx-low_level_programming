@@ -34,14 +34,14 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	arr = malloc(nmemb * sizeof(*arr));
+	arr = malloc(nmemb * sizeof(int));
 	if (arr == NULL)
 	{
 		return (NULL);
 	}
 	else
 	{
-		_memset(arr, 0, (nmemb * sizeof(int)));
+		_memset((char *)arr, 0, (nmemb * sizeof(int)));
 		return (arr);
 	}
 }
