@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdio.h>
 
 /**
  * _memset - fill string with a char
@@ -16,7 +16,7 @@ void *_memset(char *str, char a, unsigned int n)
 
 	while (n--)
 	{
-		*s++ = a;
+		*str++ = a;
 	}
 	return (s);
 }
