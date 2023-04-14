@@ -20,6 +20,10 @@ int *array_range(int min, int max)
 	{
 		return (NULL);
 	}
+	else if (min > max)
+	{
+		return (NULL);
+	}
 	else
 	{
 		for (i = min; i < max; i++)
