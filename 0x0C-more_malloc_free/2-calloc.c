@@ -29,7 +29,6 @@ void *_memset(char *str, char a, unsigned int n)
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *arr;
-	unsigned int i, len;
 
 	if (nmemb == 0 || size == 0)
 	{
@@ -42,8 +41,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 	else
 	{
-		_memset(arr, '0', (nmemb * sizeof(int)));
+		_memset(arr, 0, (nmemb * sizeof(int)));
 		return (arr);
 	}
-	free(arr);
 }
