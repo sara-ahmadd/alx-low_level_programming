@@ -41,6 +41,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	}
 
 	_memset((char *)arr, 0, (nmemb * sizeof(int)));
-	return ((void *)arr);	
+	return ((void *)arr);
 
 }
