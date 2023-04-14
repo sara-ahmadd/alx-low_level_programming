@@ -30,7 +30,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *arr;
 
-	if (nmemb == 0 || size == 0)
+	if (nmemb == 0 || nmemb == 0)
 	{
 		return (NULL);
 	}
@@ -39,9 +39,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	{
 		return (NULL);
 	}
-	else
-	{
-		_memset((char *)arr, 0, (nmemb * sizeof(int)));
-		return (arr);
-	}
+	
+	_memset((char *)arr, 0, (nmemb * sizeof(int)));
+	return (arr);	
 }
