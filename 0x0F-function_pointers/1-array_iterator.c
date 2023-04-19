@@ -1,6 +1,6 @@
 #include "function_pointers.h"
 #include <stdio.h>
-
+#include <stddef.h>
 /**
  * array_iterator - apply a function on each element in the array
  * @array: array to loop over
