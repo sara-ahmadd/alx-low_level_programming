@@ -8,9 +8,11 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	while (*name)
+	int i;
+
+	for (i = 0; name[i] != '\0'; i++)
 	{
-		_putchar(*name);
+		_putchar(name[i]);
 	}
 	_putchar('\n');
 }
