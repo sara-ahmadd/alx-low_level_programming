@@ -3,11 +3,9 @@
 /**
  * get_op_func - select appropriate operator to apropriate function
  * @s: the operator passed to the program
- * @a: first int
- * @b: second int
  * Return: pointer to the suitable function
  */
-int (*get_op_func(char *s))(int a, int b)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 		{"+", op_add},
