@@ -3,9 +3,11 @@
 /**
  * get_op_func - select appropriate operator to apropriate function
  * @s: the operator passed to the program
+ * @a: first int
+ * @b: second int
  * Return: pointer to the suitable function
  */
-int (*get_op_func(char *s))(int, int)
+int (*get_op_func(char *s))(int a, int b)
 {
 	op_t ops[] = {
 		{"+", op_add},
@@ -14,14 +16,17 @@ int (*get_op_func(char *s))(int, int)
 		{"/", op_div},
 		{"%", op_mod},
 		{NULL, NULL}
-	};
-	int i;
+		};
 
-	while (i < (sizeof(ops)/sizeof(ops[0])))
+	int i = 0, len;
+
+	len = sizeof(ops) / sizeof(ops[0]);
+
+	while (i < len)
 	{
-		if (*s == ops[i][0])
+		if (*s == *ops[i].op)
 		{
-			return (ops[i][1]);
+			return (ops[i].f);
 		}
 		else
 		{
@@ -30,5 +35,5 @@ int (*get_op_func(char *s))(int, int)
 		}
 		i++;
 	}
-
+	return (0);
 }
