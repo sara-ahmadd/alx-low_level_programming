@@ -18,22 +18,17 @@ int (*get_op_func(char *s))(int a, int b)
 		{NULL, NULL}
 		};
 
-	int i = 0, len;
+	int i = 0;
 
-	len = sizeof(ops) / sizeof(ops[0]);
-
-	while (i < len)
+	while (i < 5)
 	{
-		if (*s == *ops[i].op)
+		if (s && s[0] == ops[i].op[0] && !s[1])
 		{
 			return (ops[i].f);
 		}
-		else
-		{
-			printf("Error\n");
-			exit (99);
-		}
 		i++;
 	}
-	return (0);
+	printf("Error\n");
+	exit (99);
+	return (NULL);
 }
