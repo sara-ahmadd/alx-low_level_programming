@@ -40,8 +40,8 @@ void format_float(char *separator, va_list args)
  */
 void format_string(char *separator, va_list args)
 {
-	char *str = va_arg(args, str);
-	printf("%s%S", separator, str ? str : "(nil)");
+	char *str = va_arg(args, char *);
+	printf("%s%s", separator, str ? str : "(nil)");
 }
 /**
  * print_all - print args of any datatype
@@ -50,7 +50,7 @@ void format_string(char *separator, va_list args)
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0, j = 0;
+	int i = 0, j;
 	va_list args;
 	char *sep = "";;
 
@@ -65,6 +65,7 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 	while (format && format[i])
 	{
+		j = 0;
 		while (args_format[j].arg_type)
 		{
 			if (format[i] == args_format[j].arg_type[0])
