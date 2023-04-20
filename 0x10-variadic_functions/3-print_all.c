@@ -2,6 +2,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 /**
@@ -51,7 +52,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j = 0;
 	va_list args;
-	char *sep = ", ";;
+	char *sep = "";;
 
 	arguments_format args_format[] = {
 		{"c", format_charac},
@@ -69,6 +70,7 @@ void print_all(const char * const format, ...)
 			if (format[i] == args_format[j].arg_type[0])
 			{
 				args_format[j].f(sep, args);
+				sep = ", ";
 			}
 			j++;
 		}
