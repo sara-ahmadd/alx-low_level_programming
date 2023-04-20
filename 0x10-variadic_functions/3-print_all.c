@@ -49,6 +49,10 @@ void format_string(char *separator, va_list args)
  */
 void print_all(const char * const format, ...)
 {
+	int i = 0, j = 0;
+	va_list args;
+	char *sep = ", ";;
+
 	arguments_format args_format[] = {
 		{"c", format_charac},
 		{"i", format_integer},
@@ -56,9 +60,6 @@ void print_all(const char * const format, ...)
 		{"s", format_string},
 		{NULL, NULL}
 	};
-	int i = 0, j = 0;
-	va_list args;
-	char *sep = ", ";
 
 	va_start(args, format);
 	while (format && format[i])
