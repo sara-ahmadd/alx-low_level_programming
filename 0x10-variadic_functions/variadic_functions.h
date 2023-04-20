@@ -7,10 +7,11 @@
  * @arg_type: type of argument
  * @f: function for specified datatype
  */
-typedef struct arguments {
+typedef struct arguments
+{
 	char *arg_type;
 	void (*f)(char *, va_list);
-}arguments_format;
+} arguments_format;
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
