@@ -10,7 +10,7 @@
  * @separator: separate arguments
  * @args: list of arguments
  */
-void format_integer( char *separator, va_list args)
+void format_integer(char *separator, va_list args)
 {
 	printf("%s%d", separator, va_arg(args, int));
 }
@@ -41,6 +41,7 @@ void format_float(char *separator, va_list args)
 void format_string(char *separator, va_list args)
 {
 	char *str = va_arg(args, char *);
+
 	printf("%s%s", separator, str ? str : "(nil)");
 }
 /**
@@ -52,7 +53,7 @@ void print_all(const char * const format, ...)
 {
 	int i = 0, j;
 	va_list args;
-	char *sep = "";;
+	char *sep = "";
 
 	arguments_format args_format[] = {
 		{"c", format_charac},
