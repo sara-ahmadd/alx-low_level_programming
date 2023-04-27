@@ -26,14 +26,12 @@ int _strlen(char *str)
  */
 size_t print_list(const list_t *h)
 {
-	const list_t *current = h;
 	unsigned int counter = 0;
-
-	while (current != NULL)
+i
+	while (h != NULL)
 	{
-		printf("[%d]%s\n", _strlen(current->str),
-				current->str ? current->str : "(nil)");
-		current = current->next;
+		printf("[%d]%s\n", _strlen(h->str), h->str ? h->str : "(nil)");
+		h = h->next;
 		counter++;
 	}
 	return (counter);
