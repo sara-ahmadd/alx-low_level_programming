@@ -5,9 +5,10 @@
  * @str: the string
  * Return: struct
  */
-list_t createNode (const char *str)
+list_t createNode(const char *str)
 {
 	list_t *newNode;
+
 	newNode->str = str;
 	newNode->next = NULL;
 }
@@ -24,7 +25,7 @@ list_t *add_node(list_t **head, const char *str)
 
 	if (!head || !newNode)
 	{
-		retunr (NULL);
+		return (NULL);
 	}
 
 	if (str)
@@ -33,7 +34,7 @@ list_t *add_node(list_t **head, const char *str)
 		if (!newNode->str)
 		{
 			free(newNode);
-			return (NULL):
+			return (NULL);
 		}
 		newNode->len = strlen(newNode->str);
 	}
