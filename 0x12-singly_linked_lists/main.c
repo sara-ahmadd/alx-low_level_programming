@@ -1,7 +1,5 @@
-#include <stdlib.h>
-#include <string.h>
+julien@ubuntu:~/0x12. Singly linked lists$ cat 100-main.c
 #include <stdio.h>
-#include "lists.h"
 
 /**
  * main - check the code
@@ -10,16 +8,6 @@
  */
 int main(void)
 {
-    list_t *head;
-
-    head = NULL;
-    add_node_end(&head, "Bob");
-    add_node_end(&head, "&");
-    add_node_end(&head, "Kris");
-    add_node_end(&head, "love");
-    add_node_end(&head, "asm");
-    print_list(head);
-    free_list(head);
-    head = NULL;
+    printf("(A tortoise, having pretty good sense of a hare's nature, challenges one to a race.)\n");
     return (0);
 }
