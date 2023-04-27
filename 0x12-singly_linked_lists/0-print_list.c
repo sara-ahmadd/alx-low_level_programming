@@ -32,7 +32,7 @@ size_t print_list(const list_t *h)
 	while (current != NULL)
 	{
 		printf("[%d]%s\n", _strlen(current->str),
-				current->str == NULL ? "(nil)" : current->str);
+				current->str ? current->str : "(nil)");
 		current = current->next;
 		counter++;
 	}
