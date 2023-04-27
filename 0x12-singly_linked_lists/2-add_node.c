@@ -1,17 +1,5 @@
 #include "lists.h"
 
-/**
- * createNode - creat new node
- * @str: the string
- * Return: struct
- */
-list_t createNode(const char *str)
-{
-	list_t *newNode;
-
-	newNode->str = str;
-	newNode->next = NULL;
-}
 
 /**
  * add_node - add new node in the start
