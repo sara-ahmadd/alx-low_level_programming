@@ -26,8 +26,8 @@ int _strlen(char *str)
  */
 size_t print_list(const list_t *h)
 {
-	unsigned int counter = 0;
-i
+	size_t counter = 0;
+
 	while (h)
 	{
 		printf("[%d] %s\n", _strlen(h->str), h->str ? h->str : "(nil)");
