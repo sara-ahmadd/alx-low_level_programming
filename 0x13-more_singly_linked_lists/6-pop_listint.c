@@ -10,7 +10,8 @@ int pop_listint(listint_t **head)
 	if (!head)
 		return (0);
 
-	listint_t *curr = *head;
+	listint_t *curr;
+	curr = *head;
 
 	while (curr->next)
 	{
