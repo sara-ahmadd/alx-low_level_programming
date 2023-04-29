@@ -6,16 +6,17 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	listint_t *current = malloc(sizeof(listint_t));
+	const listint_t *current = malloc(sizeof(listint_t));
 	size_t count = 0;
 
 	if (h)
 	{
-		current = head;
-		while (current != NULL)
+		current = h;
+		while (current)
 		{
-			printf("%d", current->n);
+			printf("%d\n", current->n);
 			count++;
+			current = current->next;
 		}
 	}
 	return (count);
