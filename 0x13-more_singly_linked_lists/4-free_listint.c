@@ -6,19 +6,16 @@
 void free_listint(listint_t *head)
 {
 	listint_t *curr = head, *nextNode;
-
-	if (head)
-	{
-		while (curr)
-		{
-			nextNode = curr->next;
-			free(curr);
-			curr = nextNode;
-		}
-		free(curr);
-	}
-	else
-	{
+	
+	if (!head)
 		return;
+
+	while (curr)
+	{
+		nextNode = curr->next;
+		free(curr);
+		curr = nextNode;
 	}
+	free(curr);
+
 }
