@@ -23,12 +23,19 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 		}
 
 		listint_t *current = *head;
-
-		while (current->next)
+		
+		if (current)
 		{
-			current = current->next;
-		}
+			while (current->next)
+			{
+				current = current->next;
+			}
 		current->next = newNode;
+		}
+		else
+		{
+			*head = newNode;
+		}
 		return (newNode);
 	}
 }
