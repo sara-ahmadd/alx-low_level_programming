@@ -18,10 +18,10 @@ size_t print_listint_safe(const listint_t *head)
 
 	while (curr)
 	{
-		printf("[%p]%d\n", (void *)curr, curr->n);
+		printf("[%p] %d\n", (void *)curr, curr->n);
 		i++;
 		curr = curr->next;
 	}
-	printf("->[%p]%d\n",(void *)head, 98);
+	printf("->[%p] %d\n",(void *)head, 98);
 	return (i);
 }
