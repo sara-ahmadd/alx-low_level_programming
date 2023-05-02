@@ -6,7 +6,8 @@
 
 void free_listint2(listint_t **head)
 {
-	listint_t *curr, *temp;
+	listint_t *curr = malloc(sizeof(listint_t));
+	listint_t *temp = malloc(sizeof(listint_t));;
 
 	if (!head || !*head)
 	{
@@ -21,7 +22,7 @@ void free_listint2(listint_t **head)
 		{
 			temp = curr;
 			curr = curr->next;
-			free(*temp);
+			free(temp);
 		}
 		*head = NULL;
 	}
