@@ -4,6 +4,7 @@
  * delete_nodeint_at_index - delete node at index
  * @head: head node
  * @index: the req index
+ * Return: 1 if succeded
  */
 
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
