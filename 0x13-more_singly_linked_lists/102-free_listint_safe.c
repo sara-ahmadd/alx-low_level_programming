@@ -11,16 +11,17 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *curr;
 	size_t i = 0;
 
-	if (!h)
-		return;
-
-	while (curr)
+	if (h)
 	{
-		listint_t tmp;
-		tmp = curr;
-		curr = curr->next;
-		free(tmp);
-		i++;
+		while (curr != NULL)
+		{
+			listint_t *tmp;
+			tmp = curr;
+			curr = curr->next;
+			free(tmp);
+			i++;
+		}
+		*h = NULL;
 	}
-	return (i)
+	return (i);
 }
