@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "lists.h"
+
 /**
  * free_listint2 - free linked list & set head to NULL
  * @head: the head node of the list
