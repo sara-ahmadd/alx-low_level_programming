@@ -18,6 +18,7 @@ size_t listint_len(const listint_t *h)
 			count++;
 			current = current->next;
 		}
+		free(current);
 	}
 	return (count);
 }
