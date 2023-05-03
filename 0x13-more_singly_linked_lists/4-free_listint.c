@@ -11,14 +11,19 @@
 void free_listint(listint_t *head)
 {
 	listint_t *curr, *tmp;
+	int i = 0;
 
-	curr = head;
-
-	while (curr != NULL)
+	if (head)
 	{
-		tmp = curr;
-		curr = curr->next;
-		free(tmp);
+		curr = head;
+
+		while (curr != NULL)
+		{
+			printf("hello from while loop! %d\n", i++);
+			tmp = curr;
+			curr = curr->next;
+			free(tmp);
+			printf("bye\n");
+		}
 	}
-	free(curr++);
 }
