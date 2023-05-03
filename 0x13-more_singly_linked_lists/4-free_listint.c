@@ -25,5 +25,6 @@ void free_listint(listint_t *head)
 			free(tmp);
 			printf("bye\n");
 		}
+		head = NULL;
 	}
 }
