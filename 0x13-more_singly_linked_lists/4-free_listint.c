@@ -16,13 +16,13 @@ void free_listint(listint_t *head)
 	if (head)
 	{
 		curr = head;
+		tmp = curr;
 
-		while (curr != NULL)
+		while (tmp != NULL)
 		{
 			printf("hello from while loop! %d\n", i++);
-			tmp = curr;
-			curr = curr->next;
-			free(tmp);
+			tmp = tmp->next;
+			free(curr);
 			printf("bye\n");
 		}
 		head = NULL;
