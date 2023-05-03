@@ -6,7 +6,7 @@
  */
 size_t listint_len(const listint_t *h)
 {
-	const listint_t *current = malloc(sizeof(listint_t));
+	const listint_t *current;
 	size_t count = 0;
 
 	if (h)
@@ -18,7 +18,6 @@ size_t listint_len(const listint_t *h)
 			count++;
 			current = current->next;
 		}
-		free(current);
 	}
 	return (count);
 }
