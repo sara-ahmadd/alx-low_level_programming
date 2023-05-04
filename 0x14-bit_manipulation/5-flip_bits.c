@@ -5,7 +5,6 @@
  * flip_bits - convert a number to another
  * @n: the first number
  * @m: the second number
- * 
  * Return: the number of bits flipped
  */
 
