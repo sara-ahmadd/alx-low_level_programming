@@ -11,7 +11,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0;
-	int i, len = strlen(b);
+	int i, len = strlen(b), decVal = 1;
 
 	if (b == NULL)
 	{
@@ -26,8 +26,9 @@ unsigned int binary_to_uint(const char *b)
 
 		if (b[i] == '1')
 		{
-			sum = sum * 2 + (b[i--] - '0');
+			sum += decVal;
 		}
+		decVal *= 2;
 	}
 	return (sum);
 }
