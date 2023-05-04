@@ -22,10 +22,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 		}
 
-		if (*b == '1')
-		{
-			sum = sum * 2 + (*b++ - '0');
-		}
+		sum = sum * 2 + (*b++ - '0');
 	}
 	return (sum);
 }
