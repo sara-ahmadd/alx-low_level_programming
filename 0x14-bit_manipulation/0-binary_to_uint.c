@@ -29,6 +29,10 @@ unsigned int binary_to_uint(const char *b)
 		{
 			sum += decimalVal;
 		}
+		else
+		{
+			continue;
+		}
 		decimalVal *= 2;
 	}
 	return (sum);
