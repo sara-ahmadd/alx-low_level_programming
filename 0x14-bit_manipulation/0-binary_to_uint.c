@@ -14,7 +14,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int decimalVal = 1;
 	int len = strlen(b), i;
 
-	if (!b)
+	if (b == NULL)
 	{
 		return (0);
 	}
