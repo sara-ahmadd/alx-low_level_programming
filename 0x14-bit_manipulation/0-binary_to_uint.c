@@ -31,7 +31,7 @@ unsigned int binary_to_uint(const char *b)
 		}
 		else
 		{
-			continue;
+			sum += 0;
 		}
 		decimalVal *= 2;
 	}
