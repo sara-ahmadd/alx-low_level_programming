@@ -11,7 +11,7 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int sum = 0;
-	unsigned int decimalVal = 1;
+	int decimalVal = 1;
 	int len = strlen(b), i;
 
 	if (b == NULL)
@@ -29,10 +29,7 @@ unsigned int binary_to_uint(const char *b)
 		{
 			sum += decimalVal;
 		}
-		else
-		{
-			sum += 0;
-		}
+
 		decimalVal *= 2;
 	}
 	return (sum);
