@@ -7,10 +7,11 @@
  * Return: zero or non-zero
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int fd_1, fd_2, read_len, n;
-	char *buff, file_from, file_to;
+	int fd_1, fd_2, read_len, n, closing, closing_2;
+	char *buff, *file_from, *file_to;
+
 
 	buff = NULL;
 
@@ -48,7 +49,7 @@ int main(int argc, char **argv)
 	if (fd_2 == -1 || !buff)
 	{
 		free(buff);
-		printf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	n = write(fd_2, buff, BUFF_SIZE);
