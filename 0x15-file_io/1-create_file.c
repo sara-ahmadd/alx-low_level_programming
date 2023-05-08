@@ -9,13 +9,20 @@
 
 int create_file(const char *filename, char *text_content)
 {
+	int file, n;
+
 	if (!filename)
 	{
 		return (-1);
 	}
-	FILE *pf;
-	pf = open(filename, O_WRONLY | O_CREAT, "u+rw");
 
-	fprintf(pf, "%s", text_content ? text_content : "");
+	file = open(filename, O_WRONLY | O_CREAT, "u+rw");
+	
+	n = write(file, text_content ? text_content : "", strlen(text_content));
+
+	if (n == -1)
+	{
+		return (0);
+	}
 	return (1);
 }
