@@ -16,13 +16,13 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	file = open(filename, O_WRONLY | O_CREAT, "u+rw");
+	file = open(filename, O_WRONLY | O_CREAT, 0644);
 
 	n = write(file, text_content ? text_content : "", strlen(text_content));
 
 	if (n == -1)
 	{
-		return (0);
+		return (-1);
 	}
 	return (1);
 }
