@@ -17,7 +17,7 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	file = open(filename, O_WRONLY | O_CREAT, "u+rw");
-	
+
 	n = write(file, text_content ? text_content : "", strlen(text_content));
 
 	if (n == -1)
