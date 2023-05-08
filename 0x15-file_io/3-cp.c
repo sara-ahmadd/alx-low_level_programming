@@ -1,8 +1,7 @@
 #include "main.h"
 
 
-static ssize_t read_file(char *file, char **buf, int fd);
-static void write_copy(char *file, int fd, char *buf, int len);
+static ssize_t read_file(char *file, char *buff, int fd);
 
 
 
