@@ -1,5 +1,12 @@
 #include "main.h"
 
+
+static ssize_t read_file(char *file, char **buf, int fd);
+static void write_copy(char *file, int fd, char *buf, int len);
+
+
+
+
 /**
  * main - entery point
  * @argc: count of the arguments
@@ -9,7 +16,7 @@
 
 int main(int argc, char *argv[])
 {
-	int fd_1, fd_2, read_len, n, closing, closing_2;
+	int fd_1, fd_2, read_len = 1, n, closing, closing_2;
 	char *buff, *file_from, *file_to;
 
 	if (argc != 3)
@@ -23,19 +30,12 @@ int main(int argc, char *argv[])
 	fd_2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 	buff = malloc(sizeof(char) * BUFF_SIZE);
 
-	if (fd_1 == -1 || !buff)
+	while (read_len > 0)
 	{
-		free(buff);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-	read_len = read(fd_1, buff, BUFF_SIZE);
-	if (read_len == -1)
-	{
-		free(buff);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
+		read_len = read_file(file_from, buff, fd_1);
+		if (!read_len)
+			break;
+
 	if (fd_2 == -1 || !buff)
 	{
 		free(buff);
@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
 		free(buff);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
+	}
 	}
 	free(buff);
 	closing = close(fd_1);
@@ -64,3 +65,32 @@ int main(int argc, char *argv[])
 	}
 	return (0);
 }
+
+/**
+ * read_file - read content of a file
+ * @file: the targeted file
+ * @buff: the buffer
+ * @fd: the file description
+ *
+ * Return: 1 or -1
+ */
+static ssize_t read_file(char *file, char *buff, int fd)
+{
+	int rd_len;
+
+	if (fd == -1 || !buff)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+		exit(98);
+	}
+
+	rd_len = read(fd, buff, BUFF_SIZE);
+	if (rd_len == -1)
+	{
+		free(buff);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+		exit(98);
+	}
+	return (rd_len);
+}
+
