@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 
 	const char *delims;
 	
-	delims = " ";
+	delims = " \n";
 	n = 0;
 	
 	while (1)
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	}
 	strcpy(line_cp, lineptr);
 	/*calc number of tokens*/
-	token = strtok(line_cp, delims);
+	token = strtok(lineptr, delims);
 	while (token != NULL)
 	{
 		tokens_count++;
@@ -74,12 +74,8 @@ int main(int argc, char **argv)
 			token = strtok(NULL, delims);
 		}
 
-		for(i = 0; i < tokens_count; i++)
-		{
-			argv[i] != NULL && printf("%s\n", argv[i]);
-			free(argv[i]);
-		}
-		free(argv);
+		/*execute the command*/
+		execcmd(argv);
 		free(line_cp);
 	}
 	free(lineptr);	

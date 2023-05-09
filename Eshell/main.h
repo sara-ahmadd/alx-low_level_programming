@@ -4,4 +4,5 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+void execcmd(char **argv);
 #endif
