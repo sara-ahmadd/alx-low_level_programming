@@ -1,6 +1,78 @@
 #include "main.h"
 
 /**
+ * start_shell - starting msg to my shell
+ */
+
+void start_shell(void)
+{
+	char hostn[1204] = "";
+	char *prompt = "(Myshell:)";
+
+	gethostname(hostn, sizeof(hostn));
+	printf("%s> %s #", prompt, getcwd(currentDirectory, 1024));
+}
+
+/**
+ * change_dir - change directory
+ * @argv: array of arguments
+ *
+ * Return: 0 on success
+ */
+int change_dir(char *argv[])
+{
+	if (argv[1] == NULL)
+	{
+		chdir(getenv("HOME"));
+		return (1);
+	}
+	else
+	{
+		if (chdir(argv[1]) == -1)
+		{
+			printf("%s: no such directory is found.\n", argv[1]);
+			return (-1);
+		}
+	}
+	return (0);
+}
+
+/**
+ * comm_handle - handle many commands
+ * @argv: array of inputs
+ *
+ * Return: 1 on success
+ */
+int comm_handle(char *argv[])
+{
+	char *com = NULL;
+
+	if (strcmp(argv[0],"exit") == 0)
+	{
+		exit(0);
+	}
+	else if (strcmp(argv[0],"cd") == 0)
+	{
+		change_dir(argv);
+	}
+	else if (strcmp(argv[0],"clear") == 0)
+	{
+		system("clear");
+	}
+	else if (strcmp(argv[0], "env") == 0)
+	{
+		printf("%s", getenv(argv[1]));
+	}
+	else  if (strcmp(argv[0], "history") == 0)
+	{
+	        getHistory();
+	}
+
+	strcpy(com, argv[0]);
+	return (0);
+}
+
+/**
  * main - the entery point to the program
  * @argc: number of arguments entering to the program
  * @argv: array containing the arguments
@@ -10,18 +82,22 @@
 
 int main(int argc, char **argv)
 {
-	char *prompt = "(Myshell) :)", *lineptr = NULL;
-	ssize_t n, chars_read, tokens_count = 0, i, j;
-	char *line_cp = NULL, *token;	
-
+	char *lineptr = NULL;
+	ssize_t chars_read, tokens_count = 0, i, j;
+	size_t n;
+	char *line_cp = NULL, *token;
 	const char *delims;
-	
+	pid_t proc;
+
+	currentDirectory = (char *) calloc(1024, sizeof(char));
+
+	(void)argc;
+
 	delims = " \n";
 	n = 0;
-	
 	while (1)
 	{
-	printf("%s ", prompt);
+	start_shell();
 	chars_read = getline(&lineptr, &n, stdin);
 	if (chars_read == -1)
 	{
@@ -73,10 +149,25 @@ int main(int argc, char **argv)
 			strcpy(argv[i], token);
 			token = strtok(NULL, delims);
 		}
-
-		/*execute the command*/
-		execcmd(argv);
-		free(line_cp);
+		proc = fork();
+		if (proc == -1)
+		{
+			perror("Error:");
+			exit(EXIT_FAILURE);
+		}
+		if (proc == 0)
+		{
+			/*execute the command*/
+			execcmd(argv);
+			comm_handle(argv);
+			free(line_cp);
+			exit(EXIT_FAILURE);
+		}
+		else
+		{
+			wait(NULL);
+			continue;
+		}
 	}
 	free(lineptr);	
 	return (0);
