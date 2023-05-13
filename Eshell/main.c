@@ -6,13 +6,48 @@
 
 void start_shell(void)
 {
-	char hostn[1204] = "";
 	char *prompt = "(Myshell:)";
 
-	gethostname(hostn, sizeof(hostn));
 	printf("%s> %s #", prompt, getcwd(currentDirectory, 1024));
 }
 
+/**
+ * comm_handle - handle commands
+ * @argv: list of arguments to program
+ *
+ * Retrun: 1 on success 
+ */
+int comm_handle(char *argv[])
+{
+	char comm[MAX_CHAR];
+
+	strcpy(comm, argv[0]);
+	if (strcmp(comm, "history") == 0)
+	{	
+		getHistory();
+	}
+	else if (strcmp(comm, "env") == 0)
+	{
+		printf("%s\n", env_vars(argv));
+	}
+	else if (strcmp(comm, "exit") == 0)
+	{
+		return (-1);
+	}
+	else if (strcmp(comm, "clear") == 0)
+	{
+		system("clear");
+	}
+	else if (strcmp(comm, "cd") == 0)
+	{
+		change_dir(argv);
+	}
+	else 
+	{
+		system(comm);
+	}
+	return (1);
+}
 /**
  * change_dir - change directory
  * @argv: array of arguments
@@ -36,42 +71,6 @@ int change_dir(char *argv[])
 	}
 	return (0);
 }
-
-/**
- * comm_handle - handle many commands
- * @argv: array of inputs
- *
- * Return: 1 on success
- */
-int comm_handle(char *argv[])
-{
-	char *com = NULL;
-
-	if (strcmp(argv[0],"exit") == 0)
-	{
-		exit(0);
-	}
-	else if (strcmp(argv[0],"cd") == 0)
-	{
-		change_dir(argv);
-	}
-	else if (strcmp(argv[0],"clear") == 0)
-	{
-		system("clear");
-	}
-	else if (strcmp(argv[0], "env") == 0)
-	{
-		printf("%s", getenv(argv[1]));
-	}
-	else  if (strcmp(argv[0], "history") == 0)
-	{
-	        getHistory();
-	}
-
-	strcpy(com, argv[0]);
-	return (0);
-}
-
 /**
  * main - the entery point to the program
  * @argc: number of arguments entering to the program
@@ -97,7 +96,7 @@ int main(int argc, char **argv)
 	n = 0;
 	while (1)
 	{
-	start_shell();
+	init();
 	chars_read = getline(&lineptr, &n, stdin);
 	if (chars_read == -1)
 	{
