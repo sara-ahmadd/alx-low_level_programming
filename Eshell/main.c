@@ -159,7 +159,6 @@ int main(int argc, char **argv)
 		{
 			/*execute the command*/
 			execcmd(argv);
-			comm_handle(argv);
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}

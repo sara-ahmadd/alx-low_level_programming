@@ -8,6 +8,7 @@
 void execcmd(char *argv[])
 {
 	char *cmd = NULL, *path;
+	char comm[100];
 	int x;
 
 	if (argv)
@@ -17,28 +18,25 @@ void execcmd(char *argv[])
 		x = execve(path, argv, NULL);
 		if (x == -1)
 		{
-			perror("Error");
+			printf("%d\n", x);
+			strcpy(comm, argv[0]);
+			if (strcmp(comm, "history") == 0)
+			{
+				getHistory();
+			}
+			else if (strcmp(comm, "exit") == 0)
+			{
+				exit(0);
+			}
+			else if (strcmp(comm, "clear") == 0)
+			{
+				system("clear");
+			}
+			else if (strcmp(comm, "cd") == 0)
+			{
+				change_dir(argv);
+			}
+			system(comm);
 		}
-		if (strcmp(argv[0],"exit") == 0)
-        {
-                exit(0);
-        }
-        else if (strcmp(argv[0],"cd") == 0)
-        {
-                change_dir(argv);
-        }
-        else if (strcmp(argv[0],"clear") == 0)
-        {
-                system("clear");
-        }
-        else if (strcmp(argv[0], "env") == 0)
-        {
-                printf("%s", getenv(argv[1]));
-        }
-        else  if (strcmp(argv[0], "history") == 0)
-        {
-                getHistory();
-	}
-
 	}
 }
