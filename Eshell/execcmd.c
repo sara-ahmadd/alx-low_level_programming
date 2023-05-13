@@ -19,7 +19,7 @@ void execcmd(char *argv[])
 		if (x == -1)
 		{
 			strcpy(comm, argv[0]);
-			system(comm);
+			comm_handle(argv);
 		}
 	}
 }
