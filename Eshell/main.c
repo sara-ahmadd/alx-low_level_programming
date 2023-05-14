@@ -15,18 +15,18 @@ void start_shell(void)
  * comm_handle - handle commands
  * @argv: list of arguments to program
  *
- * Retrun: void 
+ * Retrun: 1 
  */
-void comm_handle(char *argv[])
+int comm_handle(char *argv[])
 {
 
 	if (strcmp(argv[0], "env") == 0)
 	{
 		system("env");
 	}
-	else if (strcmp(argv[0], "clear") == 0)
+	else if (strcmp(argv[0], "exit") == 0)
 	{
-		system("clear");
+		exit_builtin(argv);
 	}
 	else if (strcmp(argv[0], "cd") == 0)
 	{
@@ -36,6 +36,7 @@ void comm_handle(char *argv[])
 	{
 		execcmd(argv);
 	}
+	return (1);
 }
 /**
  * change_dir - change directory
@@ -137,18 +138,35 @@ int main(int argc, char **argv)
 			strcpy(argv[i], token);
 			token = strtok(NULL, delims);
 		}
-		proc = fork();
+		if (argv[0])
+		{
+			proc = fork();
+		}
 		if (proc == -1)
 		{
 			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
-		exit_builtin(argv);
-		if (strcmp(argv[0], "cd") == 0) change_dir(argv);
+		/*if (strcmp(argv[0], "exit") == 0)exit_builtin(argv);*/
+		/*if (strcmp(argv[0], "cd") == 0) change_dir(argv);*/
 		if (proc == 0)
 		{
-			/*execute the command*/
-			comm_handle(argv);
+			if (strcmp(argv[0], "exit") == 0)
+			{
+				exit_builtin(argv);
+			}
+			else if (strcmp(argv[0], "cd") == 0) 
+			{
+				change_dir(argv);
+			}
+			else if (strcmp(argv[0], "") == 0)
+			{
+				proc = -1;
+			}
+			else
+			{
+				comm_handle(argv);
+			}
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}

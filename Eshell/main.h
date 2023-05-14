@@ -21,7 +21,7 @@ extern char **environ;
 void start_shell();
 void init();
 char *env_vars(char *argv[]);
-void comm_handle(char *argv[]);
+int comm_handle(char *argv[]);
 void getHistory();
 int change_dir(char *argv[]);
 void exit_builtin(char *argv[]);
