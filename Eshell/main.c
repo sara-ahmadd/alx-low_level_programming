@@ -15,38 +15,27 @@ void start_shell(void)
  * comm_handle - handle commands
  * @argv: list of arguments to program
  *
- * Retrun: 1 on success 
+ * Retrun: void 
  */
-int comm_handle(char *argv[])
+void comm_handle(char *argv[])
 {
-	char comm[MAX_CHAR];
 
-	strcpy(comm, argv[0]);
-	if (strcmp(comm, "history") == 0)
-	{	
-		getHistory();
-	}
-	else if (strcmp(comm, "env") == 0)
+	if (strcmp(argv[0], "env") == 0)
 	{
-		printf("%s\n", env_vars(argv));
+		system("env");
 	}
-	else if (strcmp(comm, "exit") == 0)
-	{
-		return (-1);
-	}
-	else if (strcmp(comm, "clear") == 0)
+	else if (strcmp(argv[0], "clear") == 0)
 	{
 		system("clear");
 	}
-	else if (strcmp(comm, "cd") == 0)
+	else if (strcmp(argv[0], "cd") == 0)
 	{
 		change_dir(argv);
 	}
 	else 
 	{
-		system(comm);
+		execcmd(argv);
 	}
-	return (1);
 }
 /**
  * change_dir - change directory
@@ -154,10 +143,12 @@ int main(int argc, char **argv)
 			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
+		exit_builtin(argv);
+		if (strcmp(argv[0], "cd") == 0) change_dir(argv);
 		if (proc == 0)
 		{
 			/*execute the command*/
-			execcmd(argv);
+			comm_handle(argv);
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}

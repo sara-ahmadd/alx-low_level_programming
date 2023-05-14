@@ -2,10 +2,15 @@
 
 /**
  * exit_builtin - exit the shell
+ * @argv: list of arguments
+ *
+ * Return: void
  */
 
-int exit_builtin()
+void exit_builtin(char *argv[])
 {
-	printf("Exit My shell\n");
-	return (-1);
+	if (strcmp(argv[0], "exit") == 0)
+	{
+		exit(0);
+	}
 }
