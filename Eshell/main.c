@@ -138,35 +138,24 @@ int main(int argc, char **argv)
 			strcpy(argv[i], token);
 			token = strtok(NULL, delims);
 		}
-		if (argv[0])
+		if (argv[0] != NULL)
 		{
 			proc = fork();
+		}
+		else
+		{
+			continue;
 		}
 		if (proc == -1)
 		{
 			perror("Error:");
 			exit(EXIT_FAILURE);
 		}
-		/*if (strcmp(argv[0], "exit") == 0)exit_builtin(argv);*/
-		/*if (strcmp(argv[0], "cd") == 0) change_dir(argv);*/
+		if (strcmp(argv[0], "exit") == 0)exit_builtin(argv);
+		if (strcmp(argv[0], "cd") == 0) change_dir(argv);
 		if (proc == 0)
 		{
-			if (strcmp(argv[0], "exit") == 0)
-			{
-				exit_builtin(argv);
-			}
-			else if (strcmp(argv[0], "cd") == 0) 
-			{
-				change_dir(argv);
-			}
-			else if (strcmp(argv[0], "") == 0)
-			{
-				proc = -1;
-			}
-			else
-			{
-				comm_handle(argv);
-			}
+			comm_handle(argv);
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}
