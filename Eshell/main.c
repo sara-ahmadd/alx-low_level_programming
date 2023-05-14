@@ -22,7 +22,15 @@ int comm_handle(char *argv[])
 
 	if (strcmp(argv[0], "env") == 0)
 	{
-		system("env");
+		my_system("env");
+	}
+	else if (strcmp(argv[0], "setenv") == 0)
+	{
+		my_system("setenv");
+	}
+	else if (strcmp(argv[0], "unsetenv") == 0)
+	{
+		my_system("unsetenv");
 	}
 	else if (strcmp(argv[0], "exit") == 0)
 	{
@@ -30,7 +38,7 @@ int comm_handle(char *argv[])
 	}
 	else if (strcmp(argv[0], "cd") == 0)
 	{
-		change_dir(argv);
+		my_system("cd");
 	}
 	else 
 	{

@@ -27,4 +27,5 @@ int change_dir(char *argv[]);
 void exit_builtin(char *argv[]);
 void execcmd(char **argv);
 char *getPath(char *command);
+int my_system(const char *command);
 #endif
