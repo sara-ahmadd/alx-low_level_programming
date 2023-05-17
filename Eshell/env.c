@@ -7,10 +7,25 @@
  * Return: value
  */
 
-char *env_vars(char *argv[])
+void env_vars(char *argv[], char* envp[])
 {
-	char *x;
+	int i;
+	char cwd[200];
 
-	x = getenv(argv[1]);
-	return (x);
+	if (strcmp(argv[0], "env") == 0)
+	{
+		if (getcwd(cwd, sizeof(cwd)) == NULL)
+		{
+			perror("Error");
+		}
+		else
+		{
+			setenv("PWD", cwd, 1);
+		}
+
+		for (i = 0; envp[i] != NULL; i++)
+		{
+			printf("%s\n", envp[i]);
+		}
+	}
 }

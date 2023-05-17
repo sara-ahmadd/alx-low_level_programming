@@ -8,7 +8,7 @@ void start_shell(void)
 {
 	char *prompt = "(Myshell:)";
 
-	printf("%s> %s #", prompt, getcwd(currentDirectory, 1024));
+	printf("%s>%s# ", prompt, getcwd(currentDirectory, 1024));
 }
 
 /**
@@ -17,20 +17,16 @@ void start_shell(void)
  *
  * Retrun: 1 
  */
-int comm_handle(char *argv[])
+int comm_handle(char *argv[],char * envp[])
 {
 
 	if (strcmp(argv[0], "env") == 0)
 	{
-		my_system("env");
+		env_vars(argv, envp);
 	}
-	else if (strcmp(argv[0], "setenv") == 0)
+	else if (strcmp(argv[0], "clear") == 0)
 	{
-		my_system("setenv");
-	}
-	else if (strcmp(argv[0], "unsetenv") == 0)
-	{
-		my_system("unsetenv");
+		my_system("clear");
 	}
 	else if (strcmp(argv[0], "exit") == 0)
 	{
@@ -38,7 +34,7 @@ int comm_handle(char *argv[])
 	}
 	else if (strcmp(argv[0], "cd") == 0)
 	{
-		my_system("cd");
+		my_system(argv[0]);
 	}
 	else 
 	{
@@ -59,6 +55,11 @@ int change_dir(char *argv[])
 		chdir(getenv("HOME"));
 		return (1);
 	}
+	else if (strcmp(argv[1], "-") == 0)
+	{
+		chdir("/");
+		return (1);
+	}
 	else
 	{
 		if (chdir(argv[1]) == -1)
@@ -77,7 +78,7 @@ int change_dir(char *argv[])
  * Return: zero if success or non-zero value on failure
  */
 
-int main(int argc, char **argv)
+int main(int argc, char **argv, char *envp[])
 {
 	char *lineptr = NULL;
 	ssize_t chars_read, tokens_count = 0, i, j;
@@ -110,7 +111,6 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	strcpy(line_cp, lineptr);
-	/*calc number of tokens*/
 	token = strtok(lineptr, delims);
 	while (token != NULL)
 	{
@@ -163,7 +163,7 @@ int main(int argc, char **argv)
 		if (strcmp(argv[0], "cd") == 0) change_dir(argv);
 		if (proc == 0)
 		{
-			comm_handle(argv);
+			comm_handle(argv, envp);
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}

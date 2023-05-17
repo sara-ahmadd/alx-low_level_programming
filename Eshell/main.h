@@ -20,12 +20,12 @@ extern char **environ;
 
 void start_shell();
 void init();
-char *env_vars(char *argv[]);
-int comm_handle(char *argv[]);
+void env_vars(char *argv[], char *envp[]);
+int comm_handle(char *argv[], char *envp[]);
 void getHistory();
 int change_dir(char *argv[]);
 void exit_builtin(char *argv[]);
 void execcmd(char **argv);
 char *getPath(char *command);
-int my_system(const char *command);
+int my_system(char *command);
 #endif
