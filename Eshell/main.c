@@ -17,12 +17,23 @@ void start_shell(void)
  *
  * Retrun: 1 
  */
-int comm_handle(char *argv[],char * envp[])
+int comm_handle(char *argv[])
 {
-
 	if (strcmp(argv[0], "env") == 0)
 	{
-		env_vars(argv, envp);
+		env_vars(argv);
+	}
+	else if (strcmp(argv[0], "printenv") == 0)
+	{
+		print_env(argv);
+	}
+	else if (strcmp(argv[0], "setenv") == 0)
+	{
+		set_env(argv);
+	}
+	else if (strcmp(argv[0], "unsetenv") == 0)
+	{
+		unset_env(argv);
 	}
 	else if (strcmp(argv[0], "clear") == 0)
 	{
@@ -32,9 +43,9 @@ int comm_handle(char *argv[],char * envp[])
 	{
 		exit_builtin(argv);
 	}
-	else if (strcmp(argv[0], "cd") == 0)
-	{
-		my_system(argv[0]);
+	else if (strcmp(argv[0], "cd") == 0) 
+	{	
+		change_dir(argv);
 	}
 	else 
 	{
@@ -78,7 +89,7 @@ int change_dir(char *argv[])
  * Return: zero if success or non-zero value on failure
  */
 
-int main(int argc, char **argv, char *envp[])
+int main(int argc, char **argv)
 {
 	char *lineptr = NULL;
 	ssize_t chars_read, tokens_count = 0, i, j;
@@ -160,10 +171,10 @@ int main(int argc, char **argv, char *envp[])
 			exit(EXIT_FAILURE);
 		}
 		if (strcmp(argv[0], "exit") == 0)exit_builtin(argv);
-		if (strcmp(argv[0], "cd") == 0) change_dir(argv);
+		/*if (strcmp(argv[0], "cd") == 0) change_dir(argv);*/
 		if (proc == 0)
 		{
-			comm_handle(argv, envp);
+			comm_handle(argv);
 			free(line_cp);
 			exit(EXIT_FAILURE);
 		}

@@ -7,7 +7,7 @@
  * Return: value
  */
 
-void env_vars(char *argv[], char* envp[])
+void env_vars(char *argv[])
 {
 	int i;
 	char cwd[200];
@@ -23,9 +23,9 @@ void env_vars(char *argv[], char* envp[])
 			setenv("PWD", cwd, 1);
 		}
 
-		for (i = 0; envp[i] != NULL; i++)
+		for (i = 0; environ[i] != NULL; i++)
 		{
-			printf("%s\n", envp[i]);
+			printf("%s\n", environ[i]);
 		}
 	}
 }
