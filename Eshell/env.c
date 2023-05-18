@@ -2,8 +2,8 @@
 
 /**
  * env_vars - return value of environment variable
- *@argv: list of input args
-
+ * @argv: list of input arg
+ *
  * Return: value
  */
 

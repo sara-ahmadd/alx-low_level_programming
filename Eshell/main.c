@@ -10,51 +10,7 @@ void start_shell(void)
 
 	printf("%s>%s# ", prompt, getcwd(currentDirectory, 1024));
 }
-
-/**
- * comm_handle - handle commands
- * @argv: list of arguments to program
- *
- * Retrun: 1 
- */
-int comm_handle(char *argv[])
-{
-	if (strcmp(argv[0], "env") == 0)
-	{
-		env_vars(argv);
-	}
-	else if (strcmp(argv[0], "printenv") == 0)
-	{
-		print_env(argv);
-	}
-	else if (strcmp(argv[0], "setenv") == 0)
-	{
-		set_env(argv);
-	}
-	else if (strcmp(argv[0], "unsetenv") == 0)
-	{
-		unset_env(argv);
-	}
-	else if (strcmp(argv[0], "clear") == 0)
-	{
-		my_system("clear");
-	}
-	else if (strcmp(argv[0], "exit") == 0)
-	{
-		exit_builtin(argv);
-	}
-	else if (strcmp(argv[0], "cd") == 0) 
-	{	
-		change_dir(argv);
-	}
-	else 
-	{
-		execcmd(argv);
-	}
-	return (1);
-}
-/**
- * change_dir - change directory
+/*
  * @argv: array of arguments
  *
  * Return: 0 on success
@@ -91,17 +47,13 @@ int change_dir(char *argv[])
 
 int main(int argc, char **argv)
 {
-	char *lineptr = NULL;
 	ssize_t chars_read, tokens_count = 0, i, j;
 	size_t n;
-	char *line_cp = NULL, *token;
+	char *line_cp = NULL, *token, *lineptr = NULL;
 	const char *delims;
-	pid_t proc;
 
 	currentDirectory = (char *) calloc(1024, sizeof(char));
-
 	(void)argc;
-
 	delims = " \n";
 	n = 0;
 	while (1)
@@ -128,8 +80,7 @@ int main(int argc, char **argv)
 		tokens_count++;
 		token = strtok(NULL, delims);
 	}
-		tokens_count++;
-	
+		tokens_count++;	
 	argv = malloc(sizeof(char *) * tokens_count);
 	if (argv == NULL)
 	{
@@ -157,33 +108,10 @@ int main(int argc, char **argv)
 			strcpy(argv[i], token);
 			token = strtok(NULL, delims);
 		}
-		if (argv[0] != NULL)
-		{
-			proc = fork();
-		}
-		else
-		{
-			continue;
-		}
-		if (proc == -1)
-		{
-			perror("Error:");
-			exit(EXIT_FAILURE);
-		}
-		if (strcmp(argv[0], "exit") == 0)exit_builtin(argv);
-		/*if (strcmp(argv[0], "cd") == 0) change_dir(argv);*/
-		if (proc == 0)
-		{
-			comm_handle(argv);
-			free(line_cp);
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			wait(NULL);
-			continue;
-		}
+		comm_handle(argv);
+		free(line_cp);
 	}
-	free(lineptr);	
+	free(lineptr);
+	free(currentDirectory);
 	return (0);
 }

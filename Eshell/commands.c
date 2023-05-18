@@ -4,14 +4,26 @@
  * comm_handle - handle commands
  * @argv: list of arguments to program
  *
- * Retrun: 1 
+ * Return: 1
  */
-int comm_handle(char *argv[],char * envp[])
-{
 
+int comm_handle(char *argv[])
+{
 	if (strcmp(argv[0], "env") == 0)
 	{
-		env_vars(argv, envp);
+		env_vars(argv);
+	}
+	else if (strcmp(argv[0], "printenv") == 0)
+	{
+		print_env(argv);
+	}
+	else if (strcmp(argv[0], "setenv") == 0)
+	{
+		set_env(argv);
+	}
+	else if (strcmp(argv[0], "unsetenv") == 0)
+	{
+		unset_env(argv);
 	}
 	else if (strcmp(argv[0], "clear") == 0)
 	{
@@ -23,12 +35,11 @@ int comm_handle(char *argv[],char * envp[])
 	}
 	else if (strcmp(argv[0], "cd") == 0)
 	{
-		my_system(argv[0]);
+		change_dir(argv);
 	}
-	else 
+	else
 	{
 		execcmd(argv);
 	}
 	return (1);
-
 }
