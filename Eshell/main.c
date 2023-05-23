@@ -27,7 +27,7 @@ int change_dir(char *argv[])
 {
 	if (argv[1] == NULL)
 	{
-		chdir(getenv("HOME"));
+		chdir(_getenv("HOME"));
 		return (1);
 	}
 	else if (strcmp(argv[1], "-") == 0)
