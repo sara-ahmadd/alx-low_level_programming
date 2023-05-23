@@ -4,10 +4,10 @@
  * comm_handle - handle commands
  * @argv: list of arguments to program
  *
- * Return: 1
+ * Return: void
  */
 
-int comm_handle(char *argv[])
+void comm_handle(char *argv[])
 {
 	if (strcmp(argv[0], "env") == 0)
 	{
@@ -25,10 +25,6 @@ int comm_handle(char *argv[])
 	{
 		unset_env(argv);
 	}
-	else if (strcmp(argv[0], "clear") == 0)
-	{
-		my_system("clear");
-	}
 	else if (strcmp(argv[0], "exit") == 0)
 	{
 		exit_builtin(argv);
@@ -41,5 +37,4 @@ int comm_handle(char *argv[])
 	{
 		execcmd(argv);
 	}
-	return (1);
 }

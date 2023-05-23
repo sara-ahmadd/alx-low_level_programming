@@ -7,6 +7,8 @@
 
 void init(void)
 {
+	int init_mode;
+
 	init_mode = isatty(STDIN_FILENO);
 
 	if (init_mode == 1)

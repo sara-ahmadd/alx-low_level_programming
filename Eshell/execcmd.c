@@ -3,9 +3,10 @@
 /**
  * execcmd - execute the command
  * @argv: the array of arguments
+ * Return: 1 on success
  */
 
-void execcmd(char *argv[])
+int execcmd(char *argv[])
 {
 	char *cmd = NULL, *path;
 	int x;
@@ -18,6 +19,7 @@ void execcmd(char *argv[])
 	if (pid == -1)
 	{
 		perror("Error with fork.");
+		exit(EXIT_FAILURE);
 	}
 
 	if (pid == 0)
@@ -28,10 +30,12 @@ void execcmd(char *argv[])
 		if (x == -1)
 		{
 			perror("Error: ");
+			exit(EXIT_FAILURE);
 		}
 	}
 	else
 	{
 		wait(NULL);
 	}
+	return (1);
 }

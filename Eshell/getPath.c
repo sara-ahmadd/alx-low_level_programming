@@ -30,10 +30,10 @@ char *getPath(char *command)
 	struct stat buff;
 
 	env = "PATH";
-	path = getenv(env);
+	path = _getenv(env);
 	if (!path)
 	{
-		dprintf(STDERR_FILENO, "The entered variable %s is not found.", env);
+		dprintf(STDERR_FILENO, "The entered variable %s is not found.\n", env);
 		exit(1);
 	}
 	cmd_len = strlen(command);

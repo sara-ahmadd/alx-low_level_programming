@@ -9,28 +9,36 @@
 
 int set_env(char *argv[])
 {
-	char *var_name = argv[1];
-	char *var_val = argv[2];
-	char *var_str;
-	int len = strlen(var_name) + strlen(var_val) + 2;
+	list_t *node, *curr;
 
-	var_str = malloc(len);
-	snprintf(var_str, len, "%s=%s", var_name, var_val);
-
-	if (argv[1] == NULL || argv[2] == NULL)
+	if (argv[1] == NULL || argv[2] == NULL || vars_list == NULL)
 	{
-		fprintf(stderr, "Too few arguments.\n");
+		write(STDERR_FILENO, "too few arguments\n", 18);
 		return (-1);
 
 	}
-	if (setenv(argv[1], argv[2], 1) != 0)
+	else
 	{
-		perror("Error: setenv");
-		return (-1);
-
+		for (curr = vars_list; curr != NULL; curr = curr->next)
+		{
+			if (strcmp(curr->var_name, argv[1]) == 0)
+			{
+				strcpy(curr->var_value, argv[2]);
+				return (1);
+			}
+		}
+		node = insert_node_end(&vars_list, argv[1], argv[2]);
+		if (node == NULL)
+		{
+			write(STDERR_FILENO, "something went wrong\n", 20);
+			return (-1);
+		}
+		else
+		{
+			return (1);
+		}
 	}
 	return (1);
-	free(var_str);
 }
 
 /**
@@ -42,19 +50,22 @@ int set_env(char *argv[])
 
 int unset_env(char *argv[])
 {
+	char *var;
+
 	if (argv[1] == NULL)
 	{
-		fprintf(stderr, "Too few arguments");
+		write(STDERR_FILENO, "Too few arguments\n", 18);
 		return (-1);
 	}
-	if (getenv(argv[1]) != NULL)
+	var = _getenv(argv[1]);
+
+	if (var != NULL)
 	{
-		unsetenv(argv[1]);
-		return (1);
+		remove_node(argv[1]);
 	}
 	else
 	{
-		perror("Variable doesnot exist");
+		return (-1);
 	}
 	return (1);
 }
@@ -67,19 +78,23 @@ int unset_env(char *argv[])
 void print_env(char *argv[])
 {
 	char *name;
-	int i = 0;
+	list_t *curr;
 
-	name = getenv(argv[1]);
-	if (strcmp(argv[0], "printenv") == 0 && argv[1] == NULL)
+	if (argv[1] == NULL)
 	{
-		while (environ[i] != NULL)
+		for (curr = vars_list; curr != NULL; curr = curr->next)
 		{
-			printf("%s\n", environ[i]);
-			i++;
+			printf("%s=%s\n", curr->var_name, curr->var_value);
 		}
 	}
-	if (name != NULL)
+	if (argv[1] != NULL)
 	{
-		printf("%s\n", name);
+		name = _getenv(argv[1]);
+		if (name == NULL)
+		{
+			return;
+		}
+		printf("%s\n", name ? name : NULL);
 	}
+
 }
